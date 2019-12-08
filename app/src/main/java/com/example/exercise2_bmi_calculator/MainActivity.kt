@@ -28,10 +28,9 @@ class MainActivity : AppCompatActivity() {
 
         val BMIresult = weight.text.toString().toDouble() / ((height.text.toString().toDouble()/100)*(height.text.toString().toDouble()/100))
 
-        textBMI.text = BMIresult.toString()
+        textViewBMI.text = BMIresult.toString()
 
-        Toast.makeText(this, "button clicked",
-            Toast.LENGTH_SHORT).show()
+
 
         if(BMIresult < 18.5){
             val underr = BMIresult
@@ -40,6 +39,8 @@ class MainActivity : AppCompatActivity() {
                 else -> R.drawable.empty
             }
             BMIPicture.setImageResource(BMI)
+            Toast.makeText(this, "You're too skinny!",
+                Toast.LENGTH_SHORT).show()
         }else if(BMIresult >= 18.5 && BMIresult <=24.9){
             val norm = BMIresult
             val BMI = when(BMIresult){
@@ -47,6 +48,8 @@ class MainActivity : AppCompatActivity() {
                 else -> R.drawable.empty
             }
             BMIPicture.setImageResource(BMI)
+            Toast.makeText(this, "Awesome!",
+                Toast.LENGTH_SHORT).show()
         }else if( BMIresult > 25){
             val overr = BMIresult
             val BMI = when(BMIresult){
@@ -54,6 +57,8 @@ class MainActivity : AppCompatActivity() {
                 else -> R.drawable.empty
             }
             BMIPicture.setImageResource(BMI)
+            Toast.makeText(this, "Let's go to the gym bro!",
+                Toast.LENGTH_SHORT).show()
         }
     }
 
